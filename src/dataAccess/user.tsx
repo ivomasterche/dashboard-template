@@ -19,7 +19,7 @@ export async function addUser(
   role: string | undefined = "User"
 ): Promise<IUser | null> {
   connectToMongoDB().catch((error) => {
-    throw new Error("Cannot connect to DB", error.message);
+    throw new Error("Cannot connect to DB" + error.message);
   });
   let user: IUser | null = null;
   try {
@@ -42,7 +42,7 @@ export async function addUser(
     });
     return user;
   } catch (error: any) {
-    throw new Error("Cannot create User, Error", error.message);
+    throw new Error("Cannot create User, Error" + error.message);
   }
 }
 
