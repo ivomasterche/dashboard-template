@@ -46,15 +46,6 @@ export default function NewVerificationForm() {
   });
 
   /**
-   * if token is present in the params, auto submit the form and verify the user
-   */
-  useEffect(() => {
-    if (token) {
-      autoSubmit();
-    }
-  }, []);
-
-  /**
    * Handles the form auto submission, does not create a new function on each render
    * Shows corresponding messages on success or error
    * @param values - The form values
@@ -71,6 +62,15 @@ export default function NewVerificationForm() {
         });
     }
   }, [token]);
+  /**
+   * if token is present in the params, auto submit the form and verify the user
+   */
+
+  useEffect(() => {
+    if (token) {
+      autoSubmit();
+    }
+  }, [token, autoSubmit]);
 
   /**
    * Handles the form submission
